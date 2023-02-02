@@ -1,0 +1,108 @@
+﻿<Page x:Class="ClothingStore.Pages.Registration"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ClothingStore.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="800"
+      d:DesignWidth="850"
+      Background="White"
+      Title="Registration">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" Grid.Row="1" Background="Azure">
+
+            <TextBlock Text="Регистрация" HorizontalAlignment="Center" VerticalAlignment="Top"
+                           FontSize="18" Margin="0 10" Height="22"/>
+
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Электронная почта:" Margin="10 50 0 0" TextAlignment="Right"
+                           Width="165" HorizontalAlignment="Left" FontSize="18"
+                           />
+                    <TextBox x:Name="tbxEmail" Width="300" Margin="10 50 40 0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Имя:" Margin="10 10 0 0" TextAlignment="Right" HorizontalAlignment="Left"
+                       Width="165" Height="23" FontSize="18"/>
+                    <TextBox x:Name="tbxName" Width="300" Margin="10 10 40 0"/>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Фамилия:" Margin="10 10 0 0" TextAlignment="Right"
+                           Width="165" HorizontalAlignment="Left" FontSize="18"
+                           />
+                    <TextBox x:Name="tbxSurname" Width="300" Margin="10 10 40 0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Отчество:" Margin="10 10 0 0" TextAlignment="Right"
+                           Width="165" HorizontalAlignment="Left" FontSize="18"
+                           />
+                    <TextBox x:Name="tbxPatronymic" Width="300" Margin="10 10 40 0"/>
+                </StackPanel>
+                
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Дата рождения:" Margin="10 10 0 0" TextAlignment="Right"
+                          Width="165" HorizontalAlignment="Left" FontSize="18"
+                         />
+                    <TextBox x:Name="tbxBirthday" Width="300" Margin="10 10 40 0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Номер телефона:" Margin="10 10 0 0" TextAlignment="Right"
+                          Width="165" HorizontalAlignment="Left" FontSize="18"
+                           />
+                    <TextBox x:Name="tbxPhone" Width="300" Margin="10 10 40 0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Ваш пол:" Margin="-121 10 0 0"
+                           Width="165" HorizontalAlignment="Left" FontSize="18"
+                           />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <RadioButton x:Name="rbtGirl" Content="Ж" Margin="-50 10 0 0" FontSize="18"/>
+                        <RadioButton x:Name="rbtMan" Content="М" Margin="0 10 0 0" FontSize="18"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Придумайте пароль:" Margin="10 10 0 0"
+                           Width="165" HorizontalAlignment="Left" FontSize="18"
+                           />
+                    <TextBox x:Name="tbxPassword" Width="300" Margin="10 10 40 0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Повторите пароль:" Margin="10 10 0 0"
+                           Width="165" HorizontalAlignment="Left" FontSize="18"
+                           />
+                    <TextBox x:Name="tbxResetPassword" Width="300" Margin="10 10 40 0"/>
+
+                </StackPanel>
+                <Button x:Name="btnReg" Width="170" Height="27" Margin="0 50 0 0"
+                        Background="Transparent" Content="Зарегистрироваться"
+                        Click="btnReg_Click" FontSize="18"/>
+
+                <TextBlock Text="У вас есть аккаунт?" Margin="0 80 0 0"
+                           Width="165" HorizontalAlignment="Center" FontSize="18"
+                            />
+                <Button x:Name="btnSigIn" Width="170" Height="27" Margin="0 20 0 0"
+                        Background="Transparent" Content="Войти"
+                        FontSize="18" Click="btnSigIn_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
