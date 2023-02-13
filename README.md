@@ -14,4 +14,10 @@
 
 <h2>Регистрация</h2>
 
-![image](https://user-images.githubusercontent.com/78139576/216282951-26bd30f8-d321-4ac2-b5ca-2c6c7857b002.png)
+![image](https://user-images.githubusercontent.com/78139576/218404907-188e886b-85a1-4c06-9810-9bed21152b1a.png)
+
+<h2>Каталог продуктов</h2>
+
+![image](https://user-images.githubusercontent.com/78139576/218405490-09604713-0e86-48a5-abb4-09184fdd129f.png)
+
+
