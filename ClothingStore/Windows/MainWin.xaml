@@ -1,18 +1,18 @@
-﻿<Window x:Class="ClothingStore.MainWindow"
+﻿<Window x:Class="ClothingStore.Windows.MainWin"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:Icon ="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ClothingStore"
+        xmlns:local="clr-namespace:ClothingStore.Windows"
         mc:Ignorable="d"
+        xmlns:Icon ="http://metro.mahapps.com/winfx/xaml/iconpacks"
         WindowState="Maximized"
         Title="MainWindow"
         MinHeight="600"
         Icon="{Icon:MaterialImage Kind=TshirtCrew, Brush=Aqua}"
         MinWidth ="800">
     <Grid>
-        
+
         <Frame x:Name="contextFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

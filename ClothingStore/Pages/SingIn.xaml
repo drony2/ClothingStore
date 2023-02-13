@@ -43,11 +43,11 @@
                         <TextBlock Text="Пароль" HorizontalAlignment="Center" FontSize="23"/>
                         <PasswordBox x:Name="psbPassword" Margin="60 10 60 0" Height="23" Width="300" HorizontalAlignment="Center"/>
                     </StackPanel>
-                    <Button x:Name="btnSigIn" Content="Войти" Background="Transparent"
+                    <Button x:Name="btnSigIn" BorderThickness="0" Content="Войти" Background="Transparent"
                             FontSize="20" Width="70" Margin="0 50 0 0 " Click="btnLogIn_Click"/>
 
-                    <Button x:Name="btnEnter" Content="Зарегестрироваться" Background="Transparent"
-                            FontSize="20" Width="170" Margin="0 50 0 0 " Click="btnEnter_Click"/>
+                    <Button x:Name="btnEnter" BorderThickness="0" Content="Зарегестрироваться" Background="Transparent"
+                            FontSize="20" Width="185" Margin="0 50 0 0 " Click="btnEnter_Click"/>
 
                 </StackPanel>
 

@@ -53,13 +53,16 @@
                            />
                     <TextBox x:Name="tbxPatronymic" Width="300" Margin="10 10 40 0"/>
                 </StackPanel>
-                
+
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <TextBlock Text="Дата рождения:" Margin="10 10 0 0" TextAlignment="Right"
                           Width="165" HorizontalAlignment="Left" FontSize="18"
                          />
-                    <TextBox x:Name="tbxBirthday" Width="300" Margin="10 10 40 0"/>
+
+                    <DatePicker x:Name="dprBirthday" FontSize="18" HorizontalAlignment="Left" Width="165" Margin="10 10 175 0"/>
+
                 </StackPanel>
+                    
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <TextBlock Text="Номер телефона:" Margin="10 10 0 0" TextAlignment="Right"
@@ -73,34 +76,32 @@
                            Width="165" HorizontalAlignment="Left" FontSize="18"
                            />
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <RadioButton x:Name="rbtGirl" Content="Ж" Margin="-50 10 0 0" FontSize="18"/>
-                        <RadioButton x:Name="rbtMan" Content="М" Margin="0 10 0 0" FontSize="18"/>
+                        <RadioButton x:Name="rbtGirl"  Content="Ж" Margin="-50 10 0 0" FontSize="18"/>
+                        <RadioButton x:Name="rbtMan" IsChecked="True" Content="М" Margin="0 10 0 0" FontSize="18"/>
                     </StackPanel>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <TextBlock Text="Придумайте пароль:" Margin="10 10 0 0"
-                           Width="165" HorizontalAlignment="Left" FontSize="18"
+                           Width="169" HorizontalAlignment="Left" FontSize="18"
                            />
-                    <TextBox x:Name="tbxPassword" Width="300" Margin="10 10 40 0"/>
+                    <PasswordBox x:Name="psbPassword" Width="300" Margin="10 10 45 0"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <TextBlock Text="Повторите пароль:" Margin="10 10 0 0"
                            Width="165" HorizontalAlignment="Left" FontSize="18"
                            />
-                    <TextBox x:Name="tbxResetPassword" Width="300" Margin="10 10 40 0"/>
+                    <PasswordBox x:Name="psbResetPassword" Width="300" Margin="3 10 35 0"/>
 
                 </StackPanel>
-                <Button x:Name="btnReg" Width="170" Height="27" Margin="0 50 0 0"
+                <Button x:Name="btnReg" Width="170" BorderThickness="0" Height="27" Margin="0 50 0 0"
                         Background="Transparent" Content="Зарегистрироваться"
                         Click="btnReg_Click" FontSize="18"/>
 
-                <TextBlock Text="У вас есть аккаунт?" Margin="0 80 0 0"
-                           Width="165" HorizontalAlignment="Center" FontSize="18"
-                            />
-                <Button x:Name="btnSigIn" Width="170" Height="27" Margin="0 20 0 0"
-                        Background="Transparent" Content="Войти"
+                
+                <Button x:Name="btnSigIn" BorderThickness="0" Width="170" Height="27" Margin="0 100 0 0"
+                        Background="Transparent" Content="У вас есть аккаунт?"
                         FontSize="18" Click="btnSigIn_Click"/>
             </StackPanel>
         </Grid>
