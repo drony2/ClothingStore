@@ -12,17 +12,31 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ClothingStore.Classes;
+using ClothingStore.Windows;
+using ClothingStore.DB;
 
 namespace ClothingStore.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для ProductPages.xaml
+    /// Логика взаимодействия для CatalogPages.xaml
     /// </summary>
-    public partial class ProductPages : Page
+    public partial class CatalogPages : Page
     {
-        public ProductPages()
+        public CatalogPages()
         {
             InitializeComponent();
+
+            GetListProduct();
+        }
+
+        private void GetListProduct()
+        {
+            List<DB.Product> products = new List<DB.Product>();
+            products = EF.Context.Product.ToList();
+
+            LvProduct.ItemsSource = products;
         }
     }
 }
+

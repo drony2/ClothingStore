@@ -32,7 +32,7 @@ namespace ClothingStore.Pages
 
             if (userAuth!=null)
             {
-                MessageBox.Show("ОК");
+                Classes.NavigationClass.navFrame.Navigate(new Pages.CatalogPages());
 
             }
             else

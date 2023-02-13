@@ -148,8 +148,8 @@
     <Compile Include="DB\User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ProductPages.xaml.cs">
-      <DependentUpon>ProductPages.xaml</DependentUpon>
+    <Compile Include="Pages\CatalogPages.xaml.cs">
+      <DependentUpon>CatalogPages.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MainWin.xaml.cs">
       <DependentUpon>MainWin.xaml</DependentUpon>
@@ -157,7 +157,10 @@
     <Compile Include="Windows\Product.xaml.cs">
       <DependentUpon>Product.xaml</DependentUpon>
     </Compile>
-    <Page Include="Pages\ProductPages.xaml">
+    <Compile Include="Windows\ProductItemWindow.xaml.cs">
+      <DependentUpon>ProductItemWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Pages\CatalogPages.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -174,6 +177,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Product.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ProductItemWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -218,9 +225,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="DB\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -232,6 +237,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\bez-nazvanija-3.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

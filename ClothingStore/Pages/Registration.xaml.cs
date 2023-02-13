@@ -27,13 +27,12 @@ namespace ClothingStore.Pages
     public partial class Registration : Page
     {
         private static readonly char[] Number = "0123456789".ToCharArray();
-        private static readonly char[] SpecSimbol = "@%!@#$%^&*()?/>.<,:;'|}]{[_~`+=-".ToCharArray();
+        private static readonly char[] SpecSimvol = "@%!@#$%^&*()?/>.<,:;'|}]{[_~`+=-".ToCharArray();
         private static readonly char[] StringEng = "qwertyuiopasdfghjklmnbvcxzQWERTYUIOPASDFGHJKLZXCVBNM".ToCharArray();
         private static readonly char[] StringRu = "йцуёкенгшщзхъэждлорпавыфячсмитьбюЙЦУКЕНГШЩЗХЪЁФЫВАПРОЛДЖЭЯЧСМИТЬБЮ".ToCharArray();
         public Registration()
         {
             InitializeComponent();
-
         }
         private bool Check = true;
         private int CheckGender = 1;
@@ -67,6 +66,8 @@ namespace ClothingStore.Pages
 
                 // оповещение об успехе
                 MessageBox.Show("Вы зарегестрировались");
+                Classes.NavigationClass.navFrame.Navigate(new Pages.SingIn());
+
             }
             else
             {
@@ -117,7 +118,7 @@ namespace ClothingStore.Pages
 
             //Проверка на правильность создания пароля
             if (psbPassword.Password.IndexOfAny(StringEng) != -1 || psbPassword.Password.IndexOfAny(StringRu) != -1
-                && psbPassword.Password.LastIndexOfAny(Number) != -1 && psbPassword.Password.LastIndexOfAny(SpecSimbol) != -1)
+                && psbPassword.Password.LastIndexOfAny(Number) != -1 && psbPassword.Password.LastIndexOfAny(SpecSimvol) != -1)
             {
 
                 MessageBox.Show("Пароль должен состоять из букв ерхнего и нижнего клонтитула и спецсимвола");
@@ -131,7 +132,18 @@ namespace ClothingStore.Pages
                 Check = false;
                 MessageBox.Show("Несовподат пароли!!!");
             }
-            
+
+            //Проверека номера телефона
+            if (tbxPhone.Text.Contains("+7") || tbxPhone.Text.Contains("8") || tbxPhone.Text.Contains("7"))
+            {
+                
+            }
+            else
+            {
+                MessageBox.Show("Неверно введен номер телефона!");
+                Check=false;
+            }
+
 
 
         }
