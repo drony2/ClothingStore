@@ -154,11 +154,11 @@
     <Compile Include="Windows\MainWin.xaml.cs">
       <DependentUpon>MainWin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Product.xaml.cs">
-      <DependentUpon>Product.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Windows\ProductItemWindow.xaml.cs">
       <DependentUpon>ProductItemWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindowAddProduct.xaml.cs">
+      <DependentUpon>WindowAddProduct.xaml</DependentUpon>
     </Compile>
     <Page Include="Pages\CatalogPages.xaml">
       <SubType>Designer</SubType>
@@ -176,11 +176,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Product.xaml">
+    <Page Include="Windows\ProductItemWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\ProductItemWindow.xaml">
+    <Page Include="Windows\WindowAddProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -237,7 +237,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Resource Include="Images\bez-nazvanija-3.jpg" />
+    <Resource Include="Images\1.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -37,6 +37,7 @@ namespace ClothingStore.Pages
         private bool Check = true;
         private int CheckGender = 1;
 
+
         private void btnReg_Click(object sender, RoutedEventArgs e)
         {
             CheckAllForms();

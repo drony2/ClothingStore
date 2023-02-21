@@ -21,18 +21,21 @@ namespace ClothingStore.Pages
     /// </summary>
     public partial class SingIn : Page
     {
+        public bool Singin = false;
         public SingIn()
         {
             InitializeComponent();
         }
-
+        
         private void btnLogIn_Click(object sender, RoutedEventArgs e)
         {
             var userAuth = Context.User.ToList().Where(i => i.Login ==tbxLoggin.Text && i.Password == psbPassword.Password).FirstOrDefault();
 
             if (userAuth!=null)
             {
+
                 Classes.NavigationClass.navFrame.Navigate(new Pages.CatalogPages());
+                Singin = true;
 
             }
             else

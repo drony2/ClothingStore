@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using ClothingStore.Classes;
 using ClothingStore.Windows;
 using ClothingStore.DB;
+using System.IO;
+
 
 namespace ClothingStore.Pages
 {
@@ -23,9 +25,11 @@ namespace ClothingStore.Pages
     /// </summary>
     public partial class CatalogPages : Page
     {
+        
         public CatalogPages()
         {
             InitializeComponent();
+           
 
             GetListProduct();
         }
@@ -37,6 +41,34 @@ namespace ClothingStore.Pages
 
             LvProduct.ItemsSource = products;
         }
+
+        private void Singin_Click(object sender, RoutedEventArgs e)
+        {
+
+            
+        }
+
+
+        private void BtnAddProduct_Click_1(object sender, RoutedEventArgs e)
+        {
+            WindowAddProduct windowAddProduct = new WindowAddProduct();
+            windowAddProduct.ShowDialog();
+        }
+
+        private void BtnMore_Click_1(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            if (button == null)
+            {
+                return;
+            }
+
+            Product selectedProduct = button.DataContext as Product;
+
+            WindowAddProduct windowAddProduct = new WindowAddProduct(selectedProduct);
+            windowAddProduct.ShowDialog();
+
+            GetListProduct();
+        }
     }
 }
-
