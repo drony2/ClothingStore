@@ -21,3 +21,9 @@
 ![image](https://user-images.githubusercontent.com/78139576/218405490-09604713-0e86-48a5-abb4-09184fdd129f.png)
 
 
+<h2>Изменение и добавление товара</h2>
+<h3>Некоретно работает добавление фото в редактор продукта</h3>
+
+![image](https://user-images.githubusercontent.com/78139576/220439989-14c792f9-278c-44b2-8e4d-d5990e5973f0.png)
+
+
