@@ -5,13 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Хранилище ClothingStoreModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="BonusCard">
-          <Key>
-            <PropertyRef Name="IDBonusCard" />
-          </Key>
-          <Property Name="IDBonusCard" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NumberOfBonuses" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-        </EntityType>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="IDCategory" />
@@ -77,16 +70,6 @@
           <Property Name="IDClothingBarn" Type="int" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
         </EntityType>
-        <EntityType Name="Passport">
-          <Key>
-            <PropertyRef Name="IDPassport" />
-          </Key>
-          <Property Name="IDPassport" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Series" Type="int" Nullable="false" />
-          <Property Name="Number" Type="int" Nullable="false" />
-          <Property Name="DateOfIssue" Type="datetime" Nullable="false" />
-          <Property Name="IssueBy" Type="nvarchar" MaxLength="200" Nullable="false" />
-        </EntityType>
         <EntityType Name="Position">
           <Key>
             <PropertyRef Name="IDPosition" />
@@ -103,13 +86,6 @@
           <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="IDCategory" Type="int" Nullable="false" />
           <Property Name="Photo" Type="nvarchar" MaxLength="100" />
-        </EntityType>
-        <EntityType Name="Role">
-          <Key>
-            <PropertyRef Name="IDRole" />
-          </Key>
-          <Property Name="IDRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="int" />
         </EntityType>
         <EntityType Name="Size">
           <Key>
@@ -351,7 +327,6 @@
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="Хранилище ClothingStoreModelContainer">
-          <EntitySet Name="BonusCard" EntityType="Self.BonusCard" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClothingBarn" EntityType="Self.ClothingBarn" Schema="dbo" store:Type="Tables" />
@@ -360,10 +335,8 @@
           <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderProduct" EntityType="Self.OrderProduct" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Passport" EntityType="Self.Passport" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Size" EntityType="Self.Size" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -460,7 +433,6 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
-          <EntitySet Name="BonusCard" EntityType="ClothingStoreModel.BonusCard" />
           <EntitySet Name="Category" EntityType="ClothingStoreModel.Category" />
           <EntitySet Name="Client" EntityType="ClothingStoreModel.Client" />
           <EntitySet Name="ClothingBarn" EntityType="ClothingStoreModel.ClothingBarn" />
@@ -469,10 +441,8 @@
           <EntitySet Name="Gender" EntityType="ClothingStoreModel.Gender" />
           <EntitySet Name="Order" EntityType="ClothingStoreModel.Order" />
           <EntitySet Name="OrderProduct" EntityType="ClothingStoreModel.OrderProduct" />
-          <EntitySet Name="Passport" EntityType="ClothingStoreModel.Passport" />
           <EntitySet Name="Position" EntityType="ClothingStoreModel.Position" />
           <EntitySet Name="Product" EntityType="ClothingStoreModel.Product" />
-          <EntitySet Name="Role" EntityType="ClothingStoreModel.Role" />
           <EntitySet Name="Size" EntityType="ClothingStoreModel.Size" />
           <EntitySet Name="Status" EntityType="ClothingStoreModel.Status" />
           <EntitySet Name="sysdiagrams" EntityType="ClothingStoreModel.sysdiagrams" />
@@ -545,13 +515,6 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
-        <EntityType Name="BonusCard">
-          <Key>
-            <PropertyRef Name="IDBonusCard" />
-          </Key>
-          <Property Name="IDBonusCard" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NumberOfBonuses" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-        </EntityType>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="IDCategory" />
@@ -636,16 +599,6 @@
           <NavigationProperty Name="ClothingBarn" Relationship="ClothingStoreModel.FK_OrderProduct_ClothingBarn" FromRole="OrderProduct" ToRole="ClothingBarn" />
           <NavigationProperty Name="Order" Relationship="ClothingStoreModel.FK_OrderProduct_Order" FromRole="OrderProduct" ToRole="Order" />
         </EntityType>
-        <EntityType Name="Passport">
-          <Key>
-            <PropertyRef Name="IDPassport" />
-          </Key>
-          <Property Name="IDPassport" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Series" Type="Int32" Nullable="false" />
-          <Property Name="Number" Type="Int32" Nullable="false" />
-          <Property Name="DateOfIssue" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IssueBy" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="Position">
           <Key>
             <PropertyRef Name="IDPosition" />
@@ -665,13 +618,6 @@
           <Property Name="Photo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Category" Relationship="ClothingStoreModel.FK_Product_Category" FromRole="Product" ToRole="Category" />
           <NavigationProperty Name="ClothingBarn" Relationship="ClothingStoreModel.FK_Characteristic_Product" FromRole="Product" ToRole="ClothingBarn" />
-        </EntityType>
-        <EntityType Name="Role">
-          <Key>
-            <PropertyRef Name="IDRole" />
-          </Key>
-          <Property Name="IDRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="Int32" />
         </EntityType>
         <EntityType Name="Size">
           <Key>
@@ -917,14 +863,6 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище ClothingStoreModel.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище ClothingStoreModel.sp_upgraddiagrams" />
-          <EntitySetMapping Name="BonusCard">
-            <EntityTypeMapping TypeName="ClothingStoreModel.BonusCard">
-              <MappingFragment StoreEntitySet="BonusCard">
-                <ScalarProperty Name="NumberOfBonuses" ColumnName="NumberOfBonuses" />
-                <ScalarProperty Name="IDBonusCard" ColumnName="IDBonusCard" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Category">
             <EntityTypeMapping TypeName="ClothingStoreModel.Category">
               <MappingFragment StoreEntitySet="Category">
@@ -998,17 +936,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Passport">
-            <EntityTypeMapping TypeName="ClothingStoreModel.Passport">
-              <MappingFragment StoreEntitySet="Passport">
-                <ScalarProperty Name="IssueBy" ColumnName="IssueBy" />
-                <ScalarProperty Name="DateOfIssue" ColumnName="DateOfIssue" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="Series" ColumnName="Series" />
-                <ScalarProperty Name="IDPassport" ColumnName="IDPassport" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Position">
             <EntityTypeMapping TypeName="ClothingStoreModel.Position">
               <MappingFragment StoreEntitySet="Position">
@@ -1025,14 +952,6 @@
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IDProduct" ColumnName="IDProduct" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Role">
-            <EntityTypeMapping TypeName="ClothingStoreModel.Role">
-              <MappingFragment StoreEntitySet="Role">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="IDRole" ColumnName="IDRole" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

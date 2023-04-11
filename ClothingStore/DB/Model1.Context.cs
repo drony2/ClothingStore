@@ -27,7 +27,6 @@ namespace ClothingStore.DB
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<BonusCard> BonusCard { get; set; }
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<ClothingBarn> ClothingBarn { get; set; }
@@ -36,10 +35,8 @@ namespace ClothingStore.DB
         public virtual DbSet<Gender> Gender { get; set; }
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<OrderProduct> OrderProduct { get; set; }
-        public virtual DbSet<Passport> Passport { get; set; }
         public virtual DbSet<Position> Position { get; set; }
         public virtual DbSet<Product> Product { get; set; }
-        public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Size> Size { get; set; }
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }

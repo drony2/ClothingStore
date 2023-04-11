@@ -55,19 +55,19 @@ namespace ClothingStore.Windows
 
             // вывод фото
 
-            //if (product.Photo != null)
-            //{
-            //    using (MemoryStream ms = new MemoryStream(Convert.ToInt32(product.Photo)))
-            //    {
-            //        BitmapImage bitmapImage = new BitmapImage();
-            //        bitmapImage.BeginInit();
-            //        bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
-            //        bitmapImage.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
-            //        bitmapImage.StreamSource = ms;
-            //        bitmapImage.EndInit();
-            //        ImgProduct.Source = bitmapImage;
-            //    }
-            //}
+            if (product.Photo != null)
+            {
+                using (MemoryStream ms = new MemoryStream(Convert.ToInt32(product.Photo)))
+                {
+                    BitmapImage bitmapImage = new BitmapImage();
+                    bitmapImage.BeginInit();
+                    bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmapImage.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
+                    bitmapImage.StreamSource = ms;
+                    bitmapImage.EndInit();
+                    ImgProduct.Source = bitmapImage;
+                }
+            }
 
 
             // Изменение заголовка и кнопки 

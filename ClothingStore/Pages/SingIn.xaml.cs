@@ -33,9 +33,27 @@ namespace ClothingStore.Pages
 
             if (userAuth!=null)
             {
+                var employeeAuth = Context.Employee.Where(i => i.IDUser == userAuth.IDUser).FirstOrDefault();
 
-                Classes.NavigationClass.navFrame.Navigate(new Pages.CatalogPages());
-                Singin = true;
+                if (employeeAuth != null)
+                {
+                    switch (employeeAuth.IDEmployee)
+                    {
+                        case 1:
+                            Classes.NavigationClass.navFrame.Navigate(new Pages.DirectorMain());
+                            
+                            
+                            break;
+                        case 2:
+                            Classes.NavigationClass.navFrame.Navigate(new Pages.CatalogPages());
+                            break;
+
+                        //переход на покупателя
+
+                        default:
+                            break;
+                    }
+                }
 
             }
             else
