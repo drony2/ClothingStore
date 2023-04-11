@@ -25,5 +25,7 @@
 <h3>Некоретно работает добавление фото в редактор продукта</h3>
 
 ![image](https://user-images.githubusercontent.com/78139576/220439989-14c792f9-278c-44b2-8e4d-d5990e5973f0.png)
+<h2>Страница для директора</h2>
 
+![image](https://user-images.githubusercontent.com/78139576/231258656-16847beb-3d1f-46a4-9164-5237ff574b02.png)
 
