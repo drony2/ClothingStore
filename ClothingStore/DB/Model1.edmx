@@ -85,7 +85,7 @@
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="IDCategory" Type="int" Nullable="false" />
-          <Property Name="Photo" Type="nvarchar" MaxLength="100" />
+          <Property Name="Photo" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Size">
           <Key>
@@ -615,7 +615,7 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
           <Property Name="IDCategory" Type="Int32" Nullable="false" />
-          <Property Name="Photo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Category" Relationship="ClothingStoreModel.FK_Product_Category" FromRole="Product" ToRole="Category" />
           <NavigationProperty Name="ClothingBarn" Relationship="ClothingStoreModel.FK_Characteristic_Product" FromRole="Product" ToRole="ClothingBarn" />
         </EntityType>

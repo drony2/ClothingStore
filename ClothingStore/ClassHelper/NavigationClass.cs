@@ -10,5 +10,7 @@ namespace ClothingStore.Classes
     public class NavigationClass
     {
         public static Frame navFrame;
+
+        public static int EmplUser ;
     }
 }

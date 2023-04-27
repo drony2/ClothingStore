@@ -30,5 +30,18 @@ namespace ClothingStore.Pages
             
             Classes.NavigationClass.navFrame.Navigate(new Pages.CatalogPages());
         }
+
+        private void btnEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            Classes.NavigationClass.EmplUser = 0;
+            Classes.NavigationClass.navFrame.Navigate(new Pages.EditEmployee());
+        }
+
+        private void btnClient_Click(object sender, RoutedEventArgs e)
+        {
+            Classes.NavigationClass.EmplUser = 1;
+
+            Classes.NavigationClass.navFrame.Navigate(new Pages.EditEmployee());
+        }
     }
 }

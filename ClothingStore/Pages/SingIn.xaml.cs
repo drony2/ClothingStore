@@ -37,17 +37,29 @@ namespace ClothingStore.Pages
 
                 if (employeeAuth != null)
                 {
-                    switch (employeeAuth.IDEmployee)
+                    switch (employeeAuth.IDPosition)
                     {
                         case 1:
+                            SingInLoggin.Loggin = userAuth.FirstName;
+                            SingInLoggin.Position = "Директор";
                             Classes.NavigationClass.navFrame.Navigate(new Pages.DirectorMain());
+
                             
                             
                             break;
                         case 2:
+                            SingInLoggin.Loggin = userAuth.FirstName;
+                            SingInLoggin.Position = "Покупатель";
                             Classes.NavigationClass.navFrame.Navigate(new Pages.CatalogPages());
                             break;
 
+
+                        case 3:
+                            SingInLoggin.Loggin = userAuth.FirstName;
+
+                            SingInLoggin.Position = "Работник";
+                            Classes.NavigationClass.navFrame.Navigate(new Pages.CatalogPages());
+                            break;
                         //переход на покупателя
 
                         default:
@@ -67,6 +79,11 @@ namespace ClothingStore.Pages
         private void btnEnter_Click(object sender, RoutedEventArgs e)
         {
             Classes.NavigationClass.navFrame.Navigate(new Pages.Registration());
+        }
+
+        private void btnSignCatalog_Click(object sender, RoutedEventArgs e)
+        {
+            Classes.NavigationClass.navFrame.Navigate(new Pages.CatalogPages());
         }
     }
 }

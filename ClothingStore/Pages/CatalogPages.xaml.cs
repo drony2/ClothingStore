@@ -29,9 +29,12 @@ namespace ClothingStore.Pages
         public CatalogPages()
         {
             InitializeComponent();
-           
-
+            if (SingInLoggin.Loggin != null)
+            {
+                btnSingin.Content = SingInLoggin.Loggin;
+            }
             GetListProduct();
+           
         }
 
         private void GetListProduct()
@@ -42,17 +45,14 @@ namespace ClothingStore.Pages
             LvProduct.ItemsSource = products;
         }
 
-        private void Singin_Click(object sender, RoutedEventArgs e)
-        {
-
-            
-        }
+        
 
 
         private void BtnAddProduct_Click_1(object sender, RoutedEventArgs e)
         {
             WindowAddProduct windowAddProduct = new WindowAddProduct();
             windowAddProduct.ShowDialog();
+            GetListProduct();
         }
 
         private void BtnMore_Click_1(object sender, RoutedEventArgs e)
@@ -69,6 +69,14 @@ namespace ClothingStore.Pages
             windowAddProduct.ShowDialog();
 
             GetListProduct();
+        }
+
+        private void btnSingin_Click(object sender, RoutedEventArgs e)
+        {
+            if (SingInLoggin.Loggin == null)
+            {
+                Classes.NavigationClass.navFrame.Navigate(new Pages.SingIn());
+            }
         }
     }
 }

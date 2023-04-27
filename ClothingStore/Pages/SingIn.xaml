@@ -49,6 +49,9 @@
                     <Button x:Name="btnEnter" BorderThickness="0" Content="Зарегестрироваться" Background="Transparent"
                             FontSize="20" Width="185" Margin="0 50 0 0 " Click="btnEnter_Click"/>
 
+                    <Button x:Name="btnSignCatalog" BorderThickness="0" Content="Войти как гость" Background="Transparent"
+                            FontSize="20" Width="185" Margin="0 50 0 0 " Click="btnSignCatalog_Click"/>
+
                 </StackPanel>
 
             </StackPanel>

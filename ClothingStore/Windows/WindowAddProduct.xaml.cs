@@ -57,7 +57,7 @@ namespace ClothingStore.Windows
 
             if (product.Photo != null)
             {
-                using (MemoryStream ms = new MemoryStream(Convert.ToInt32(product.Photo)))
+                using (MemoryStream ms = new MemoryStream(product.Photo))
                 {
                     BitmapImage bitmapImage = new BitmapImage();
                     bitmapImage.BeginInit();
@@ -106,7 +106,7 @@ namespace ClothingStore.Windows
                 editProduct.IDCategory = (CmbCategory.SelectedItem as Category).IDCategory;
                 if (pathImageProduct != null)
                 {
-                    editProduct.Photo = File.ReadAllBytes(pathImageProduct).ToString();
+                    editProduct.Photo = File.ReadAllBytes(pathImageProduct);
                 }
 
                 EF.Context.SaveChanges();
@@ -124,7 +124,7 @@ namespace ClothingStore.Windows
                 product.IDCategory = (CmbCategory.SelectedItem as Category).IDCategory;
                 if (pathImageProduct != null)
                 {
-                    product.Photo = File.ReadAllBytes(pathImageProduct).ToString();
+                    product.Photo = File.ReadAllBytes(pathImageProduct);
                 }
 
                 EF.Context.Product.Add(product);
