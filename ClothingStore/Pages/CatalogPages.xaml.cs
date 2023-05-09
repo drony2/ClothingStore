@@ -78,5 +78,8 @@ namespace ClothingStore.Pages
                 Classes.NavigationClass.navFrame.Navigate(new Pages.SingIn());
             }
         }
+
+
+        private void Discount 
     }
 }

@@ -33,6 +33,7 @@ namespace ClothingStore.Pages
 
         public void GetList()
         {
+            //сотрудник
             if (NavigationClass.EmplUser == 0)
             {
                 var query =
@@ -42,9 +43,14 @@ namespace ClothingStore.Pages
                where E.IDPosition == 3
                select new { User.LastName, User.FirstName, User.Patronymic, User.Email, User.PhoneNumber, User.Birthday, G.GenderName };
                 DG1.ItemsSource = query.ToList();
+
             }
             else if(NavigationClass.EmplUser == 1)
             {
+                //покупаель  
+                btnEditUser.Visibility = Visibility.Collapsed;
+                btnAddUser.Visibility = Visibility.Collapsed;
+ 
                 var query =
                from User in e.User
                join E in e.Employee on User.IDUser equals E.IDUser
@@ -53,9 +59,6 @@ namespace ClothingStore.Pages
                select new { User.LastName, User.FirstName, User.Patronymic, User.Email, User.PhoneNumber, User.Birthday, G.GenderName };
                 DG1.ItemsSource = query.ToList();
             }
-
-
-            
 
         }
 
@@ -66,7 +69,7 @@ namespace ClothingStore.Pages
 
         private void btnAddUser_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationClass.navFrame.Navigate(new Pages.EditAddClientEmployee());
         }
 
         private void btnEditUser_Click(object sender, RoutedEventArgs e)
