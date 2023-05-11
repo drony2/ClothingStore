@@ -39,14 +39,16 @@ namespace ClothingStore.Pages
 
         private void GetListProduct()
         {
+            if (SingInLoggin.Position == "Покупатель")
+            {
+                BtnAddProduct.Visibility = Visibility.Collapsed;
+                
+            }
             List<DB.Product> products = new List<DB.Product>();
             products = EF.Context.Product.ToList();
-
+            
             LvProduct.ItemsSource = products;
         }
-
-        
-
 
         private void BtnAddProduct_Click_1(object sender, RoutedEventArgs e)
         {
@@ -75,11 +77,35 @@ namespace ClothingStore.Pages
         {
             if (SingInLoggin.Loggin == null)
             {
-                Classes.NavigationClass.navFrame.Navigate(new Pages.SingIn());
+               
             }
         }
+        private void Discount()
+        {
 
+        }
 
-        private void Discount 
+        private void BtnAddСart_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            if (button == null)
+            {
+                return;
+            }
+
+            Product selectedProduct = button.DataContext as Product;
+            ClassHelper.ProductCart.products.Add(selectedProduct);
+            GetCountCart();
+
+        }
+
+        private void btnTransitionCast_Click(object sender, RoutedEventArgs e)
+        {
+            Classes.NavigationClass.navFrame.Navigate(new Pages.Cart());
+        }
+        private void GetCountCart()
+        {
+            btCount.Text = ClassHelper.ProductCart.products.Count.ToString();
+        }
     }
 }

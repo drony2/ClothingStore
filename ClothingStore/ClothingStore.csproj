@@ -76,6 +76,7 @@
     </Compile>
     <Compile Include="ClassHelper\EF.cs" />
     <Compile Include="ClassHelper\NavigationClass.cs" />
+    <Compile Include="ClassHelper\ProductCart.cs" />
     <Compile Include="ClassHelper\SingInLoggin.cs" />
     <Compile Include="DB\Category.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -140,6 +141,9 @@
     <Compile Include="DB\User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Cart.xaml.cs">
+      <DependentUpon>Cart.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CatalogPages.xaml.cs">
       <DependentUpon>CatalogPages.xaml</DependentUpon>
     </Compile>
@@ -161,6 +165,10 @@
     <Compile Include="Windows\WindowAddProduct.xaml.cs">
       <DependentUpon>WindowAddProduct.xaml</DependentUpon>
     </Compile>
+    <Page Include="Pages\Cart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\CatalogPages.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -250,6 +258,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\free-icon-shopping-cart-of-checkered-design-34627.png" />
+    <Resource Include="Images\img_456248.png" />
+    <Resource Include="Images\free-icon-fountain-pen-close-up-16941.png" />
     <Resource Include="Images\1.jpg" />
   </ItemGroup>
   <ItemGroup>
