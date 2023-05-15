@@ -12,6 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ClothingStore.Classes;
+using ClothingStore.Windows;
+using ClothingStore.DB;
+using System.IO;
+
 
 namespace ClothingStore.Pages
 {
@@ -23,16 +28,35 @@ namespace ClothingStore.Pages
         public Cart()
         {
             InitializeComponent();
+            PrintCart();
         }
+
+        
 
         public void PrintCart()
         {
             LvProduct.ItemsSource = ClassHelper.ProductCart.products;
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Classes.NavigationClass.navFrame.Navigate(new Pages.CatalogPages());
+        }
 
+        private void btnDelet_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            
+            if (button == null)
+            {
+                return;
+            }
+
+            Product selectedProduct = button.DataContext as Product;
+            ClassHelper.ProductCart.products.Remove(selectedProduct);
+            
+            Classes.NavigationClass.navFrame.Navigate(new Pages.Cart());
         }
     }
 }

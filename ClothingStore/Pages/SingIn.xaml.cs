@@ -40,7 +40,7 @@ namespace ClothingStore.Pages
                     switch (employeeAuth.IDPosition)
                     {
                         case 1:
-                            SingInLoggin.Loggin = userAuth.FirstName;
+                            SingInLoggin.User = userAuth;
                             SingInLoggin.Position = "Директор";
                             Classes.NavigationClass.navFrame.Navigate(new Pages.DirectorMain());
 
@@ -48,14 +48,14 @@ namespace ClothingStore.Pages
                             
                             break;
                         case 2:
-                            SingInLoggin.Loggin = userAuth.FirstName;
+                            SingInLoggin.User = userAuth;
                             SingInLoggin.Position = "Покупатель";
                             Classes.NavigationClass.navFrame.Navigate(new Pages.CatalogPages());
                             break;
 
 
                         case 3:
-                            SingInLoggin.Loggin = userAuth.FirstName;
+                            SingInLoggin.User = userAuth;
 
                             SingInLoggin.Position = "Работник";
                             Classes.NavigationClass.navFrame.Navigate(new Pages.CatalogPages());

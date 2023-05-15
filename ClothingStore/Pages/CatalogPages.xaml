@@ -77,16 +77,16 @@
                                        Margin="5 0 0 0"/>
                             <WrapPanel>
                                 <Button x:Name="BtnMore" 
-                                        Width="30" Margin="0 0 15 0"
-                                    Click="BtnMore_Click_1">
+                                        Width="25" Margin="0 0 15 0"
+                                    Click="BtnMore_Click_1" Background="Transparent" BorderThickness="0">
                                     <Image Source="/Images/free-icon-fountain-pen-close-up-16941.png">
                                         
                                     </Image>
                                 </Button>
                                 <Button x:Name="BtnAddСart" 
-                                        Width="30"
+                                        Width="25"
                                         Margin="15 0 0 0"
-                                        Click="BtnAddСart_Click">
+                                        Click="BtnAddСart_Click" Background="Transparent" BorderThickness="0">
                                     <Image Source="/Images/img_456248.png">
 
                                     </Image>
@@ -114,7 +114,7 @@
                 />
 
         <Button x:Name="btnSingin" Content="Войти" HorizontalAlignment="Right"
-                Grid.Row="1" Width="100" Margin="0 5 26 5"
+                Grid.Row="1" Width="180" Margin="0 5 26 5"
                 Background="Transparent" BorderThickness="0"
                 FontSize="22" Click="btnSingin_Click"/>
     </Grid>

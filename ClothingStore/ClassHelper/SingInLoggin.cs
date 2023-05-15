@@ -8,7 +8,7 @@ namespace ClothingStore
 {
     public class SingInLoggin
     {
-        public static string Loggin { get; set; }
+        public static User User { get; set; }
         public static string Position { get; set; }
     }
 }

@@ -156,6 +156,9 @@
     <Compile Include="Pages\EditEmployee.xaml.cs">
       <DependentUpon>EditEmployee.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PersonalArea.xaml.cs">
+      <DependentUpon>PersonalArea.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\MainWin.xaml.cs">
       <DependentUpon>MainWin.xaml</DependentUpon>
     </Compile>
@@ -182,6 +185,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\EditEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PersonalArea.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -258,6 +265,8 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\User.png" />
+    <Resource Include="Images\cart.png" />
     <Resource Include="Images\free-icon-shopping-cart-of-checkered-design-34627.png" />
     <Resource Include="Images\img_456248.png" />
     <Resource Include="Images\free-icon-fountain-pen-close-up-16941.png" />

@@ -29,12 +29,13 @@ namespace ClothingStore.Pages
         public CatalogPages()
         {
             InitializeComponent();
-            if (SingInLoggin.Loggin != null)
+            if (SingInLoggin.User != null)
             {
-                btnSingin.Content = SingInLoggin.Loggin;
+                btnSingin.Content = "Личный кабинет";
             }
             GetListProduct();
-           
+
+            GetCountCart();
         }
 
         private void GetListProduct()
@@ -75,10 +76,7 @@ namespace ClothingStore.Pages
 
         private void btnSingin_Click(object sender, RoutedEventArgs e)
         {
-            if (SingInLoggin.Loggin == null)
-            {
-               
-            }
+            Classes.NavigationClass.navFrame.Navigate(new Pages.PersonalArea());
         }
         private void Discount()
         {
