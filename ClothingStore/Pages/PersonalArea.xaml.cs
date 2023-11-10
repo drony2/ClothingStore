@@ -38,5 +38,10 @@ namespace ClothingStore.Pages
 
             tbPhone.Text = SingInLoggin.User.PhoneNumber.ToString();
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            Classes.NavigationClass.navFrame.Navigate(new Pages.CatalogPages());
+        }
     }
 }

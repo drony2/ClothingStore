@@ -23,7 +23,7 @@ namespace ClothingStore.Pages
     /// </summary>
     public partial class EditEmployee : Page
     {
-        Entities e = new Entities();
+        Entitiess e = new Entitiess();
         public EditEmployee()
         {
             InitializeComponent();

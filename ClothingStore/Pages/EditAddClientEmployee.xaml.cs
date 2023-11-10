@@ -24,7 +24,7 @@ namespace ClothingStore.Pages
     /// </summary>
     public partial class EditAddClientEmployee : Page
     {
-        Entities en = new Entities();
+        Entitiess en = new Entitiess();
         private static readonly char[] Number = "0123456789".ToCharArray();
         private static readonly char[] SpecSimvol = "@%!@#$%^&*()?/>.<,:;'|}]{[_~`+=-".ToCharArray();
         private static readonly char[] StringEng = "qwertyuiopasdfghjklmnbvcxzQWERTYUIOPASDFGHJKLZXCVBNM".ToCharArray();

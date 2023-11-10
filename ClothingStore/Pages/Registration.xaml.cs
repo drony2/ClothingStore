@@ -40,6 +40,7 @@ namespace ClothingStore.Pages
 
         private void btnReg_Click(object sender, RoutedEventArgs e)
         {
+            
             CheckAllForms();
             if (Check == true)
             {
@@ -84,7 +85,7 @@ namespace ClothingStore.Pages
         private void CheckAllForms()
         {
             // Проверка на пустоту
-            if (string.IsNullOrWhiteSpace(tbxName.Text) || string.IsNullOrWhiteSpace(tbxEmail.Text) || string.IsNullOrWhiteSpace(dprBirthday.Text) ||
+            if (string.IsNullOrWhiteSpace(tbxName.Text) || string.IsNullOrWhiteSpace(tbxEmail.Text) ||
                 string.IsNullOrWhiteSpace(tbxPatronymic.Text) || string.IsNullOrWhiteSpace(tbxEmail.Text) || string.IsNullOrWhiteSpace(tbxPhone.Text) ||
                 string.IsNullOrWhiteSpace(psbPassword.Password) || string.IsNullOrWhiteSpace(psbResetPassword.Password))
             {
@@ -118,13 +119,7 @@ namespace ClothingStore.Pages
             
 
             //Проверка на правильность создания пароля
-            if (psbPassword.Password.IndexOfAny(StringEng) != -1 || psbPassword.Password.IndexOfAny(StringRu) != -1
-                && psbPassword.Password.LastIndexOfAny(Number) != -1 && psbPassword.Password.LastIndexOfAny(SpecSimvol) != -1)
-            {
-
-                MessageBox.Show("Пароль должен состоять из букв ерхнего и нижнего клонтитула и спецсимвола");
-                Check = false;
-            }
+            
 
 
             //Проверка на несовпадения пароля
@@ -132,6 +127,7 @@ namespace ClothingStore.Pages
             {
                 Check = false;
                 MessageBox.Show("Несовподат пароли!!!");
+                return;
             }
 
             //Проверека номера телефона
@@ -143,6 +139,7 @@ namespace ClothingStore.Pages
             {
                 MessageBox.Show("Неверно введен номер телефона!");
                 Check=false;
+                return;
             }
 
 

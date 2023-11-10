@@ -4,13 +4,13 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище ClothingStoreModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище shopModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="IDCategory" />
           </Key>
           <Property Name="IDCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -122,9 +122,9 @@
           <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
-          <Property Name="Email" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="PhoneNumber" Type="nchar" MaxLength="12" Nullable="false" />
-          <Property Name="Birthday" Type="datetime" Nullable="false" />
+          <Property Name="Birthday" Type="datetime" />
           <Property Name="IDGender" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Characteristic_Color">
@@ -326,7 +326,7 @@
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <EntityContainer Name="Хранилище ClothingStoreModelContainer">
+        <EntityContainer Name="Хранилище shopModelContainer">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClothingBarn" EntityType="Self.ClothingBarn" Schema="dbo" store:Type="Tables" />
@@ -401,8 +401,8 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="ClothingStoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+      <Schema Namespace="shopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entitiess" annotation:LazyLoadingEnabled="true">
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -419,11 +419,11 @@
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(ClothingStoreModel.sp_helpdiagramdefinition_Result)">
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(shopModel.sp_helpdiagramdefinition_Result)">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(ClothingStoreModel.sp_helpdiagrams_Result)">
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(shopModel.sp_helpdiagrams_Result)">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -433,77 +433,77 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
-          <EntitySet Name="Category" EntityType="ClothingStoreModel.Category" />
-          <EntitySet Name="Client" EntityType="ClothingStoreModel.Client" />
-          <EntitySet Name="ClothingBarn" EntityType="ClothingStoreModel.ClothingBarn" />
-          <EntitySet Name="Color" EntityType="ClothingStoreModel.Color" />
-          <EntitySet Name="Employee" EntityType="ClothingStoreModel.Employee" />
-          <EntitySet Name="Gender" EntityType="ClothingStoreModel.Gender" />
-          <EntitySet Name="Order" EntityType="ClothingStoreModel.Order" />
-          <EntitySet Name="OrderProduct" EntityType="ClothingStoreModel.OrderProduct" />
-          <EntitySet Name="Position" EntityType="ClothingStoreModel.Position" />
-          <EntitySet Name="Product" EntityType="ClothingStoreModel.Product" />
-          <EntitySet Name="Size" EntityType="ClothingStoreModel.Size" />
-          <EntitySet Name="Status" EntityType="ClothingStoreModel.Status" />
-          <EntitySet Name="sysdiagrams" EntityType="ClothingStoreModel.sysdiagrams" />
-          <EntitySet Name="User" EntityType="ClothingStoreModel.User" />
-          <AssociationSet Name="FK_Product_Category" Association="ClothingStoreModel.FK_Product_Category">
+          <EntitySet Name="Category" EntityType="shopModel.Category" />
+          <EntitySet Name="Client" EntityType="shopModel.Client" />
+          <EntitySet Name="ClothingBarn" EntityType="shopModel.ClothingBarn" />
+          <EntitySet Name="Color" EntityType="shopModel.Color" />
+          <EntitySet Name="Employee" EntityType="shopModel.Employee" />
+          <EntitySet Name="Gender" EntityType="shopModel.Gender" />
+          <EntitySet Name="Order" EntityType="shopModel.Order" />
+          <EntitySet Name="OrderProduct" EntityType="shopModel.OrderProduct" />
+          <EntitySet Name="Position" EntityType="shopModel.Position" />
+          <EntitySet Name="Product" EntityType="shopModel.Product" />
+          <EntitySet Name="Size" EntityType="shopModel.Size" />
+          <EntitySet Name="Status" EntityType="shopModel.Status" />
+          <EntitySet Name="sysdiagrams" EntityType="shopModel.sysdiagrams" />
+          <EntitySet Name="User" EntityType="shopModel.User" />
+          <AssociationSet Name="FK_Product_Category" Association="shopModel.FK_Product_Category">
             <End Role="Category" EntitySet="Category" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-          <AssociationSet Name="FK_Size_Category" Association="ClothingStoreModel.FK_Size_Category">
+          <AssociationSet Name="FK_Size_Category" Association="shopModel.FK_Size_Category">
             <End Role="Category" EntitySet="Category" />
             <End Role="Size" EntitySet="Size" />
           </AssociationSet>
-          <AssociationSet Name="FK_Client_User" Association="ClothingStoreModel.FK_Client_User">
+          <AssociationSet Name="FK_Client_User" Association="shopModel.FK_Client_User">
             <End Role="User" EntitySet="User" />
             <End Role="Client" EntitySet="Client" />
           </AssociationSet>
-          <AssociationSet Name="FK_Order_Client" Association="ClothingStoreModel.FK_Order_Client">
+          <AssociationSet Name="FK_Order_Client" Association="shopModel.FK_Order_Client">
             <End Role="Client" EntitySet="Client" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_Characteristic_Color" Association="ClothingStoreModel.FK_Characteristic_Color">
+          <AssociationSet Name="FK_Characteristic_Color" Association="shopModel.FK_Characteristic_Color">
             <End Role="Color" EntitySet="Color" />
             <End Role="ClothingBarn" EntitySet="ClothingBarn" />
           </AssociationSet>
-          <AssociationSet Name="FK_Characteristic_Product" Association="ClothingStoreModel.FK_Characteristic_Product">
+          <AssociationSet Name="FK_Characteristic_Product" Association="shopModel.FK_Characteristic_Product">
             <End Role="Product" EntitySet="Product" />
             <End Role="ClothingBarn" EntitySet="ClothingBarn" />
           </AssociationSet>
-          <AssociationSet Name="FK_Characteristic_Size" Association="ClothingStoreModel.FK_Characteristic_Size">
+          <AssociationSet Name="FK_Characteristic_Size" Association="shopModel.FK_Characteristic_Size">
             <End Role="Size" EntitySet="Size" />
             <End Role="ClothingBarn" EntitySet="ClothingBarn" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderProduct_ClothingBarn" Association="ClothingStoreModel.FK_OrderProduct_ClothingBarn">
+          <AssociationSet Name="FK_OrderProduct_ClothingBarn" Association="shopModel.FK_OrderProduct_ClothingBarn">
             <End Role="ClothingBarn" EntitySet="ClothingBarn" />
             <End Role="OrderProduct" EntitySet="OrderProduct" />
           </AssociationSet>
-          <AssociationSet Name="FK_Employee_Position1" Association="ClothingStoreModel.FK_Employee_Position1">
+          <AssociationSet Name="FK_Employee_Position1" Association="shopModel.FK_Employee_Position1">
             <End Role="Position" EntitySet="Position" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
-          <AssociationSet Name="FK_Employee_User" Association="ClothingStoreModel.FK_Employee_User">
+          <AssociationSet Name="FK_Employee_User" Association="shopModel.FK_Employee_User">
             <End Role="User" EntitySet="User" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
-          <AssociationSet Name="FK_Order_Employee" Association="ClothingStoreModel.FK_Order_Employee">
+          <AssociationSet Name="FK_Order_Employee" Association="shopModel.FK_Order_Employee">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_User_Gender" Association="ClothingStoreModel.FK_User_Gender">
+          <AssociationSet Name="FK_User_Gender" Association="shopModel.FK_User_Gender">
             <End Role="Gender" EntitySet="Gender" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
-          <AssociationSet Name="FK_Order_Status" Association="ClothingStoreModel.FK_Order_Status">
+          <AssociationSet Name="FK_Order_Status" Association="shopModel.FK_Order_Status">
             <End Role="Status" EntitySet="Status" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderProduct_Order" Association="ClothingStoreModel.FK_OrderProduct_Order">
+          <AssociationSet Name="FK_OrderProduct_Order" Association="shopModel.FK_OrderProduct_Order">
             <End Role="Order" EntitySet="Order" />
             <End Role="OrderProduct" EntitySet="OrderProduct" />
           </AssociationSet>
-          </EntityContainer>
+        </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
           <Property Type="Binary" Name="definition" Nullable="true" />
@@ -520,9 +520,9 @@
             <PropertyRef Name="IDCategory" />
           </Key>
           <Property Name="IDCategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Product" Relationship="ClothingStoreModel.FK_Product_Category" FromRole="Category" ToRole="Product" />
-          <NavigationProperty Name="Size" Relationship="ClothingStoreModel.FK_Size_Category" FromRole="Category" ToRole="Size" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Product" Relationship="shopModel.FK_Product_Category" FromRole="Category" ToRole="Product" />
+          <NavigationProperty Name="Size" Relationship="shopModel.FK_Size_Category" FromRole="Category" ToRole="Size" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -530,8 +530,8 @@
           </Key>
           <Property Name="IDClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDUser" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="ClothingStoreModel.FK_Client_User" FromRole="Client" ToRole="User" />
-          <NavigationProperty Name="Order" Relationship="ClothingStoreModel.FK_Order_Client" FromRole="Client" ToRole="Order" />
+          <NavigationProperty Name="User" Relationship="shopModel.FK_Client_User" FromRole="Client" ToRole="User" />
+          <NavigationProperty Name="Order" Relationship="shopModel.FK_Order_Client" FromRole="Client" ToRole="Order" />
         </EntityType>
         <EntityType Name="ClothingBarn">
           <Key>
@@ -542,10 +542,10 @@
           <Property Name="IDSize" Type="Int32" Nullable="false" />
           <Property Name="IDProduct" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Int32" />
-          <NavigationProperty Name="Color" Relationship="ClothingStoreModel.FK_Characteristic_Color" FromRole="ClothingBarn" ToRole="Color" />
-          <NavigationProperty Name="Product" Relationship="ClothingStoreModel.FK_Characteristic_Product" FromRole="ClothingBarn" ToRole="Product" />
-          <NavigationProperty Name="Size" Relationship="ClothingStoreModel.FK_Characteristic_Size" FromRole="ClothingBarn" ToRole="Size" />
-          <NavigationProperty Name="OrderProduct" Relationship="ClothingStoreModel.FK_OrderProduct_ClothingBarn" FromRole="ClothingBarn" ToRole="OrderProduct" />
+          <NavigationProperty Name="Color" Relationship="shopModel.FK_Characteristic_Color" FromRole="ClothingBarn" ToRole="Color" />
+          <NavigationProperty Name="Product" Relationship="shopModel.FK_Characteristic_Product" FromRole="ClothingBarn" ToRole="Product" />
+          <NavigationProperty Name="Size" Relationship="shopModel.FK_Characteristic_Size" FromRole="ClothingBarn" ToRole="Size" />
+          <NavigationProperty Name="OrderProduct" Relationship="shopModel.FK_OrderProduct_ClothingBarn" FromRole="ClothingBarn" ToRole="OrderProduct" />
         </EntityType>
         <EntityType Name="Color">
           <Key>
@@ -553,7 +553,7 @@
           </Key>
           <Property Name="IDColor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TitleColor" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ClothingBarn" Relationship="ClothingStoreModel.FK_Characteristic_Color" FromRole="Color" ToRole="ClothingBarn" />
+          <NavigationProperty Name="ClothingBarn" Relationship="shopModel.FK_Characteristic_Color" FromRole="Color" ToRole="ClothingBarn" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -562,9 +562,9 @@
           <Property Name="IDEmployee" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDPosition" Type="Int32" Nullable="false" />
           <Property Name="IDUser" Type="Int32" />
-          <NavigationProperty Name="Position" Relationship="ClothingStoreModel.FK_Employee_Position1" FromRole="Employee" ToRole="Position" />
-          <NavigationProperty Name="User" Relationship="ClothingStoreModel.FK_Employee_User" FromRole="Employee" ToRole="User" />
-          <NavigationProperty Name="Order" Relationship="ClothingStoreModel.FK_Order_Employee" FromRole="Employee" ToRole="Order" />
+          <NavigationProperty Name="Position" Relationship="shopModel.FK_Employee_Position1" FromRole="Employee" ToRole="Position" />
+          <NavigationProperty Name="User" Relationship="shopModel.FK_Employee_User" FromRole="Employee" ToRole="User" />
+          <NavigationProperty Name="Order" Relationship="shopModel.FK_Order_Employee" FromRole="Employee" ToRole="Order" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -572,7 +572,7 @@
           </Key>
           <Property Name="IDGender" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="GenderName" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="User" Relationship="ClothingStoreModel.FK_User_Gender" FromRole="Gender" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="shopModel.FK_User_Gender" FromRole="Gender" ToRole="User" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -582,10 +582,10 @@
           <Property Name="IDClient" Type="Int32" Nullable="false" />
           <Property Name="IDEmployee" Type="Int32" Nullable="false" />
           <Property Name="IDStatus" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Client" Relationship="ClothingStoreModel.FK_Order_Client" FromRole="Order" ToRole="Client" />
-          <NavigationProperty Name="Employee" Relationship="ClothingStoreModel.FK_Order_Employee" FromRole="Order" ToRole="Employee" />
-          <NavigationProperty Name="Status" Relationship="ClothingStoreModel.FK_Order_Status" FromRole="Order" ToRole="Status" />
-          <NavigationProperty Name="OrderProduct" Relationship="ClothingStoreModel.FK_OrderProduct_Order" FromRole="Order" ToRole="OrderProduct" />
+          <NavigationProperty Name="Client" Relationship="shopModel.FK_Order_Client" FromRole="Order" ToRole="Client" />
+          <NavigationProperty Name="Employee" Relationship="shopModel.FK_Order_Employee" FromRole="Order" ToRole="Employee" />
+          <NavigationProperty Name="Status" Relationship="shopModel.FK_Order_Status" FromRole="Order" ToRole="Status" />
+          <NavigationProperty Name="OrderProduct" Relationship="shopModel.FK_OrderProduct_Order" FromRole="Order" ToRole="OrderProduct" />
         </EntityType>
         <EntityType Name="OrderProduct">
           <Key>
@@ -596,8 +596,8 @@
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="IDClothingBarn" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-          <NavigationProperty Name="ClothingBarn" Relationship="ClothingStoreModel.FK_OrderProduct_ClothingBarn" FromRole="OrderProduct" ToRole="ClothingBarn" />
-          <NavigationProperty Name="Order" Relationship="ClothingStoreModel.FK_OrderProduct_Order" FromRole="OrderProduct" ToRole="Order" />
+          <NavigationProperty Name="ClothingBarn" Relationship="shopModel.FK_OrderProduct_ClothingBarn" FromRole="OrderProduct" ToRole="ClothingBarn" />
+          <NavigationProperty Name="Order" Relationship="shopModel.FK_OrderProduct_Order" FromRole="OrderProduct" ToRole="Order" />
         </EntityType>
         <EntityType Name="Position">
           <Key>
@@ -605,7 +605,7 @@
           </Key>
           <Property Name="IDPosition" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PositionName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Employee" Relationship="ClothingStoreModel.FK_Employee_Position1" FromRole="Position" ToRole="Employee" />
+          <NavigationProperty Name="Employee" Relationship="shopModel.FK_Employee_Position1" FromRole="Position" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -616,8 +616,8 @@
           <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
           <Property Name="IDCategory" Type="Int32" Nullable="false" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="Category" Relationship="ClothingStoreModel.FK_Product_Category" FromRole="Product" ToRole="Category" />
-          <NavigationProperty Name="ClothingBarn" Relationship="ClothingStoreModel.FK_Characteristic_Product" FromRole="Product" ToRole="ClothingBarn" />
+          <NavigationProperty Name="Category" Relationship="shopModel.FK_Product_Category" FromRole="Product" ToRole="Category" />
+          <NavigationProperty Name="ClothingBarn" Relationship="shopModel.FK_Characteristic_Product" FromRole="Product" ToRole="ClothingBarn" />
         </EntityType>
         <EntityType Name="Size">
           <Key>
@@ -626,8 +626,8 @@
           <Property Name="IDSize" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Size1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="IDCategory" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Category" Relationship="ClothingStoreModel.FK_Size_Category" FromRole="Size" ToRole="Category" />
-          <NavigationProperty Name="ClothingBarn" Relationship="ClothingStoreModel.FK_Characteristic_Size" FromRole="Size" ToRole="ClothingBarn" />
+          <NavigationProperty Name="Category" Relationship="shopModel.FK_Size_Category" FromRole="Size" ToRole="Category" />
+          <NavigationProperty Name="ClothingBarn" Relationship="shopModel.FK_Characteristic_Size" FromRole="Size" ToRole="ClothingBarn" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -635,7 +635,7 @@
           </Key>
           <Property Name="IDStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StatusName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Order" Relationship="ClothingStoreModel.FK_Order_Status" FromRole="Status" ToRole="Order" />
+          <NavigationProperty Name="Order" Relationship="shopModel.FK_Order_Status" FromRole="Status" ToRole="Order" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -657,17 +657,17 @@
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="true" Unicode="true" />
-          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Birthday" Type="DateTime" Precision="3" />
           <Property Name="IDGender" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Client" Relationship="ClothingStoreModel.FK_Client_User" FromRole="User" ToRole="Client" />
-          <NavigationProperty Name="Employee" Relationship="ClothingStoreModel.FK_Employee_User" FromRole="User" ToRole="Employee" />
-          <NavigationProperty Name="Gender" Relationship="ClothingStoreModel.FK_User_Gender" FromRole="User" ToRole="Gender" />
+          <NavigationProperty Name="Client" Relationship="shopModel.FK_Client_User" FromRole="User" ToRole="Client" />
+          <NavigationProperty Name="Employee" Relationship="shopModel.FK_Employee_User" FromRole="User" ToRole="Employee" />
+          <NavigationProperty Name="Gender" Relationship="shopModel.FK_User_Gender" FromRole="User" ToRole="Gender" />
         </EntityType>
         <Association Name="FK_Product_Category">
-          <End Type="ClothingStoreModel.Category" Role="Category" Multiplicity="1" />
-          <End Type="ClothingStoreModel.Product" Role="Product" Multiplicity="*" />
+          <End Type="shopModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="shopModel.Product" Role="Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Category">
               <PropertyRef Name="IDCategory" />
@@ -678,8 +678,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Size_Category">
-          <End Type="ClothingStoreModel.Category" Role="Category" Multiplicity="1" />
-          <End Type="ClothingStoreModel.Size" Role="Size" Multiplicity="*" />
+          <End Type="shopModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="shopModel.Size" Role="Size" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Category">
               <PropertyRef Name="IDCategory" />
@@ -690,8 +690,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Client_User">
-          <End Type="ClothingStoreModel.User" Role="User" Multiplicity="1" />
-          <End Type="ClothingStoreModel.Client" Role="Client" Multiplicity="*" />
+          <End Type="shopModel.User" Role="User" Multiplicity="1" />
+          <End Type="shopModel.Client" Role="Client" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="IDUser" />
@@ -702,8 +702,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Order_Client">
-          <End Type="ClothingStoreModel.Client" Role="Client" Multiplicity="1" />
-          <End Type="ClothingStoreModel.Order" Role="Order" Multiplicity="*" />
+          <End Type="shopModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="shopModel.Order" Role="Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Client">
               <PropertyRef Name="IDClient" />
@@ -714,8 +714,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Characteristic_Color">
-          <End Type="ClothingStoreModel.Color" Role="Color" Multiplicity="1" />
-          <End Type="ClothingStoreModel.ClothingBarn" Role="ClothingBarn" Multiplicity="*" />
+          <End Type="shopModel.Color" Role="Color" Multiplicity="1" />
+          <End Type="shopModel.ClothingBarn" Role="ClothingBarn" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Color">
               <PropertyRef Name="IDColor" />
@@ -726,8 +726,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Characteristic_Product">
-          <End Type="ClothingStoreModel.Product" Role="Product" Multiplicity="1" />
-          <End Type="ClothingStoreModel.ClothingBarn" Role="ClothingBarn" Multiplicity="*" />
+          <End Type="shopModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="shopModel.ClothingBarn" Role="ClothingBarn" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
               <PropertyRef Name="IDProduct" />
@@ -738,8 +738,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Characteristic_Size">
-          <End Type="ClothingStoreModel.Size" Role="Size" Multiplicity="1" />
-          <End Type="ClothingStoreModel.ClothingBarn" Role="ClothingBarn" Multiplicity="*" />
+          <End Type="shopModel.Size" Role="Size" Multiplicity="1" />
+          <End Type="shopModel.ClothingBarn" Role="ClothingBarn" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Size">
               <PropertyRef Name="IDSize" />
@@ -750,8 +750,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OrderProduct_ClothingBarn">
-          <End Type="ClothingStoreModel.ClothingBarn" Role="ClothingBarn" Multiplicity="1" />
-          <End Type="ClothingStoreModel.OrderProduct" Role="OrderProduct" Multiplicity="*" />
+          <End Type="shopModel.ClothingBarn" Role="ClothingBarn" Multiplicity="1" />
+          <End Type="shopModel.OrderProduct" Role="OrderProduct" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ClothingBarn">
               <PropertyRef Name="IDClothingBarn" />
@@ -762,8 +762,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Employee_Position1">
-          <End Type="ClothingStoreModel.Position" Role="Position" Multiplicity="1" />
-          <End Type="ClothingStoreModel.Employee" Role="Employee" Multiplicity="*" />
+          <End Type="shopModel.Position" Role="Position" Multiplicity="1" />
+          <End Type="shopModel.Employee" Role="Employee" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Position">
               <PropertyRef Name="IDPosition" />
@@ -774,8 +774,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Employee_User">
-          <End Type="ClothingStoreModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="ClothingStoreModel.Employee" Role="Employee" Multiplicity="*" />
+          <End Type="shopModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="shopModel.Employee" Role="Employee" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="IDUser" />
@@ -786,8 +786,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Order_Employee">
-          <End Type="ClothingStoreModel.Employee" Role="Employee" Multiplicity="1" />
-          <End Type="ClothingStoreModel.Order" Role="Order" Multiplicity="*" />
+          <End Type="shopModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="shopModel.Order" Role="Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="IDEmployee" />
@@ -798,8 +798,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_User_Gender">
-          <End Type="ClothingStoreModel.Gender" Role="Gender" Multiplicity="1" />
-          <End Type="ClothingStoreModel.User" Role="User" Multiplicity="*" />
+          <End Type="shopModel.Gender" Role="Gender" Multiplicity="1" />
+          <End Type="shopModel.User" Role="User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Gender">
               <PropertyRef Name="IDGender" />
@@ -810,8 +810,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Order_Status">
-          <End Type="ClothingStoreModel.Status" Role="Status" Multiplicity="1" />
-          <End Type="ClothingStoreModel.Order" Role="Order" Multiplicity="*" />
+          <End Type="shopModel.Status" Role="Status" Multiplicity="1" />
+          <End Type="shopModel.Order" Role="Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Status">
               <PropertyRef Name="IDStatus" />
@@ -822,8 +822,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OrderProduct_Order">
-          <End Type="ClothingStoreModel.Order" Role="Order" Multiplicity="1" />
-          <End Type="ClothingStoreModel.OrderProduct" Role="OrderProduct" Multiplicity="*" />
+          <End Type="shopModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="shopModel.OrderProduct" Role="OrderProduct" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Order">
               <PropertyRef Name="IDOrder" />
@@ -833,26 +833,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        </Schema>
+      </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище ClothingStoreModelContainer" CdmEntityContainer="Entities">
-          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище ClothingStoreModel.sp_alterdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище ClothingStoreModel.sp_creatediagram" />
-          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище ClothingStoreModel.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище ClothingStoreModel.sp_helpdiagramdefinition">
+        <EntityContainerMapping StorageEntityContainer="Хранилище shopModelContainer" CdmEntityContainer="Entitiess">
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище shopModel.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище shopModel.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище shopModel.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище shopModel.sp_helpdiagramdefinition">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="ClothingStoreModel.sp_helpdiagramdefinition_Result">
+              <ComplexTypeMapping TypeName="shopModel.sp_helpdiagramdefinition_Result">
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище ClothingStoreModel.sp_helpdiagrams">
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище shopModel.sp_helpdiagrams">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="ClothingStoreModel.sp_helpdiagrams_Result">
+              <ComplexTypeMapping TypeName="shopModel.sp_helpdiagrams_Result">
                 <ScalarProperty Name="Database" ColumnName="Database" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -861,10 +861,10 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище ClothingStoreModel.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище ClothingStoreModel.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище shopModel.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище shopModel.sp_upgraddiagrams" />
           <EntitySetMapping Name="Category">
-            <EntityTypeMapping TypeName="ClothingStoreModel.Category">
+            <EntityTypeMapping TypeName="shopModel.Category">
               <MappingFragment StoreEntitySet="Category">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IDCategory" ColumnName="IDCategory" />
@@ -872,7 +872,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Client">
-            <EntityTypeMapping TypeName="ClothingStoreModel.Client">
+            <EntityTypeMapping TypeName="shopModel.Client">
               <MappingFragment StoreEntitySet="Client">
                 <ScalarProperty Name="IDUser" ColumnName="IDUser" />
                 <ScalarProperty Name="IDClient" ColumnName="IDClient" />
@@ -880,7 +880,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ClothingBarn">
-            <EntityTypeMapping TypeName="ClothingStoreModel.ClothingBarn">
+            <EntityTypeMapping TypeName="shopModel.ClothingBarn">
               <MappingFragment StoreEntitySet="ClothingBarn">
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="IDProduct" ColumnName="IDProduct" />
@@ -891,7 +891,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Color">
-            <EntityTypeMapping TypeName="ClothingStoreModel.Color">
+            <EntityTypeMapping TypeName="shopModel.Color">
               <MappingFragment StoreEntitySet="Color">
                 <ScalarProperty Name="TitleColor" ColumnName="TitleColor" />
                 <ScalarProperty Name="IDColor" ColumnName="IDColor" />
@@ -899,7 +899,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Employee">
-            <EntityTypeMapping TypeName="ClothingStoreModel.Employee">
+            <EntityTypeMapping TypeName="shopModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
                 <ScalarProperty Name="IDUser" ColumnName="IDUser" />
                 <ScalarProperty Name="IDPosition" ColumnName="IDPosition" />
@@ -908,7 +908,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Gender">
-            <EntityTypeMapping TypeName="ClothingStoreModel.Gender">
+            <EntityTypeMapping TypeName="shopModel.Gender">
               <MappingFragment StoreEntitySet="Gender">
                 <ScalarProperty Name="GenderName" ColumnName="GenderName" />
                 <ScalarProperty Name="IDGender" ColumnName="IDGender" />
@@ -916,7 +916,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Order">
-            <EntityTypeMapping TypeName="ClothingStoreModel.Order">
+            <EntityTypeMapping TypeName="shopModel.Order">
               <MappingFragment StoreEntitySet="Order">
                 <ScalarProperty Name="IDStatus" ColumnName="IDStatus" />
                 <ScalarProperty Name="IDEmployee" ColumnName="IDEmployee" />
@@ -926,7 +926,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderProduct">
-            <EntityTypeMapping TypeName="ClothingStoreModel.OrderProduct">
+            <EntityTypeMapping TypeName="shopModel.OrderProduct">
               <MappingFragment StoreEntitySet="OrderProduct">
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="IDClothingBarn" ColumnName="IDClothingBarn" />
@@ -937,7 +937,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Position">
-            <EntityTypeMapping TypeName="ClothingStoreModel.Position">
+            <EntityTypeMapping TypeName="shopModel.Position">
               <MappingFragment StoreEntitySet="Position">
                 <ScalarProperty Name="PositionName" ColumnName="PositionName" />
                 <ScalarProperty Name="IDPosition" ColumnName="IDPosition" />
@@ -945,7 +945,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Product">
-            <EntityTypeMapping TypeName="ClothingStoreModel.Product">
+            <EntityTypeMapping TypeName="shopModel.Product">
               <MappingFragment StoreEntitySet="Product">
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="IDCategory" ColumnName="IDCategory" />
@@ -956,7 +956,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Size">
-            <EntityTypeMapping TypeName="ClothingStoreModel.Size">
+            <EntityTypeMapping TypeName="shopModel.Size">
               <MappingFragment StoreEntitySet="Size">
                 <ScalarProperty Name="IDCategory" ColumnName="IDCategory" />
                 <ScalarProperty Name="Size1" ColumnName="Size" />
@@ -965,7 +965,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Status">
-            <EntityTypeMapping TypeName="ClothingStoreModel.Status">
+            <EntityTypeMapping TypeName="shopModel.Status">
               <MappingFragment StoreEntitySet="Status">
                 <ScalarProperty Name="StatusName" ColumnName="StatusName" />
                 <ScalarProperty Name="IDStatus" ColumnName="IDStatus" />
@@ -973,7 +973,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="ClothingStoreModel.sysdiagrams">
+            <EntityTypeMapping TypeName="shopModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="definition" ColumnName="definition" />
                 <ScalarProperty Name="version" ColumnName="version" />
@@ -984,7 +984,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="ClothingStoreModel.User">
+            <EntityTypeMapping TypeName="shopModel.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="IDGender" ColumnName="IDGender" />
                 <ScalarProperty Name="Birthday" ColumnName="Birthday" />
@@ -999,7 +999,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          </EntityContainerMapping>
+        </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

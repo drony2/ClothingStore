@@ -29,8 +29,7 @@ namespace ClothingStore.Pages
         
         private void btnLogIn_Click(object sender, RoutedEventArgs e)
         {
-            var userAuth = Context.User.ToList().Where(i => i.Login ==tbxLoggin.Text && i.Password == psbPassword.Password).FirstOrDefault();
-
+            var userAuth = Context.User.ToList().Where(i => i.Login == tbxLoggin.Text && i.Password == psbPassword.Password).FirstOrDefault();
             if (userAuth!=null)
             {
                 var employeeAuth = Context.Employee.Where(i => i.IDUser == userAuth.IDUser).FirstOrDefault();
@@ -43,16 +42,13 @@ namespace ClothingStore.Pages
                             SingInLoggin.User = userAuth;
                             SingInLoggin.Position = "Директор";
                             Classes.NavigationClass.navFrame.Navigate(new Pages.DirectorMain());
-
-                            
-                            
                             break;
+
                         case 2:
                             SingInLoggin.User = userAuth;
                             SingInLoggin.Position = "Покупатель";
                             Classes.NavigationClass.navFrame.Navigate(new Pages.CatalogPages());
                             break;
-
 
                         case 3:
                             SingInLoggin.User = userAuth;
@@ -60,7 +56,6 @@ namespace ClothingStore.Pages
                             SingInLoggin.Position = "Работник";
                             Classes.NavigationClass.navFrame.Navigate(new Pages.CatalogPages());
                             break;
-                        //переход на покупателя
 
                         default:
                             break;
@@ -71,6 +66,7 @@ namespace ClothingStore.Pages
             else
             {
                 MessageBox.Show("Пользователь не найден", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
 
 

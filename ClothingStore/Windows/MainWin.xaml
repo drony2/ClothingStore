@@ -8,9 +8,9 @@
         xmlns:Icon ="http://metro.mahapps.com/winfx/xaml/iconpacks"
         
         Title="MainWindow"
-        MinHeight="800"
+        MinHeight="850"
         Icon="{Icon:MaterialImage Kind=TshirtCrew, Brush=Aqua}"
-        MinWidth ="700">
+        MinWidth ="800">
     <Grid>
         <Frame x:Name="contextFrame" NavigationUIVisibility="Hidden"/>
     </Grid>

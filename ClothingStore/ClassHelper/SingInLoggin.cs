@@ -12,4 +12,3 @@ namespace ClothingStore
         public static string Position { get; set; }
     }
 }
-

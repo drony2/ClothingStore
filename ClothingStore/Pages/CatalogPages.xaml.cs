@@ -76,7 +76,14 @@ namespace ClothingStore.Pages
 
         private void btnSingin_Click(object sender, RoutedEventArgs e)
         {
-            Classes.NavigationClass.navFrame.Navigate(new Pages.PersonalArea());
+            if (btnSingin.Content.ToString() == "Войти")
+            {
+                NavigationClass.navFrame.Navigate(new Pages.SingIn());
+            }
+            else
+            {
+                NavigationClass.navFrame.Navigate(new Pages.PersonalArea());
+            }
         }
         private void Discount()
         {

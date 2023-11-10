@@ -9,6 +9,6 @@ namespace ClothingStore.Classes
 {
     internal class EF
     {
-       public static Entities Context { get; } = new Entities();
+       public static Entitiess Context { get; } = new Entitiess();
     }
 }
