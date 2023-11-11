@@ -46,14 +46,14 @@ namespace ClothingStore.Pages
 
                         case 2:
                             SingInLoggin.User = userAuth;
-                            SingInLoggin.Position = "Покупатель";
+
+                            SingInLoggin.Position = "Работник";
                             Classes.NavigationClass.navFrame.Navigate(new Pages.CatalogPages());
                             break;
 
                         case 3:
                             SingInLoggin.User = userAuth;
-
-                            SingInLoggin.Position = "Работник";
+                            SingInLoggin.Position = "Покупатель";
                             Classes.NavigationClass.navFrame.Navigate(new Pages.CatalogPages());
                             break;
 

@@ -40,7 +40,7 @@ namespace ClothingStore.Pages
                from User in e.User
                join E in e.Employee on User.IDUser equals E.IDUser
                join G in e.Gender on User.IDGender equals G.IDGender
-               where E.IDPosition == 3
+               where E.IDPosition == 2
                select new { User.LastName, User.FirstName, User.Patronymic, User.Email, User.PhoneNumber, User.Birthday, G.GenderName };
                 DG1.ItemsSource = query.ToList();
 
@@ -55,7 +55,7 @@ namespace ClothingStore.Pages
                from User in e.User
                join E in e.Employee on User.IDUser equals E.IDUser
                join G in e.Gender on User.IDGender equals G.IDGender
-               where E.IDPosition == 2
+               where E.IDPosition == 3
                select new { User.LastName, User.FirstName, User.Patronymic, User.Email, User.PhoneNumber, User.Birthday, G.GenderName };
                 DG1.ItemsSource = query.ToList();
             }

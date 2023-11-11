@@ -8,14 +8,14 @@
         <EntityTypeShape EntityType="shopModel.Category" Width="1.5" PointX="3" PointY="16.25" />
         <EntityTypeShape EntityType="shopModel.Client" Width="1.5" PointX="5.25" PointY="6.25" />
         <EntityTypeShape EntityType="shopModel.ClothingBarn" Width="1.5" PointX="7.5" PointY="13.125" />
-        <EntityTypeShape EntityType="shopModel.Color" Width="1.5" PointX="5.25" PointY="13.5" />
+        <EntityTypeShape EntityType="shopModel.Color" Width="1.5" PointX="5.25" PointY="10.875" />
         <EntityTypeShape EntityType="shopModel.Employee" Width="1.5" PointX="5.25" PointY="3.125" />
         <EntityTypeShape EntityType="shopModel.Gender" Width="1.5" PointX="0.75" PointY="3.375" />
         <EntityTypeShape EntityType="shopModel.Order" Width="1.5" PointX="7.5" PointY="4.25" />
         <EntityTypeShape EntityType="shopModel.OrderProduct" Width="1.5" PointX="9.75" PointY="4.375" />
         <EntityTypeShape EntityType="shopModel.Position" Width="1.5" PointX="3" PointY="8.375" />
         <EntityTypeShape EntityType="shopModel.Product" Width="1.5" PointX="5.25" PointY="15.875" />
-        <EntityTypeShape EntityType="shopModel.Size" Width="1.5" PointX="5.25" PointY="10.875" />
+        <EntityTypeShape EntityType="shopModel.Size" Width="1.5" PointX="5.25" PointY="13.125" />
         <EntityTypeShape EntityType="shopModel.Status" Width="1.5" PointX="5.25" PointY="0.75" />
         <EntityTypeShape EntityType="shopModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="1.125" />
         <EntityTypeShape EntityType="shopModel.User" Width="1.5" PointX="3" PointY="2.375" />
